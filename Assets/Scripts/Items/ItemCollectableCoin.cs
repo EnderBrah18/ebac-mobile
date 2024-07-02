@@ -9,16 +9,21 @@ public class ItemCollectableCoin : ItemCollectableBase
     public bool collect = false;
     public float lerp = 5f;
     public float minDistance = 1f;
+
+
+
     private void Start()
     {
-        //CoinsAnimationManager.Instance.RegisterCoin(this);
+        CoinsAnimationManager.Instance.RegisterCoin(this);
     }
+
+
     protected override void OnCollect()
     {
         base.OnCollect();
         colliders.enabled = false;
         collect = true;
-        //PlayerController.Instance.Bounce();
+        PlayerController.Instance.Bounce();
     }
 
     protected override void Collect()
